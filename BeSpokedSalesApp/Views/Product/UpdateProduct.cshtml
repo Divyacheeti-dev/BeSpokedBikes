@@ -1,0 +1,49 @@
+﻿@model ProductEditModel
+
+<h1>Update Product</h1>
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="@Model.Product.ProductId" />
+    <div class="form-group">
+        <label asp-for="@Model.Product.Name" class="control-label"></label>
+        <input asp-for="@Model.Product.Name" class="form-control" />
+        <span asp-validation-for="@Model.Product.Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Product.Manufacturer" class="control-label"></label>
+        <input asp-for="@Model.Product.Manufacturer" class="form-control" />
+        <span asp-validation-for="@Model.Product.Manufacturer" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Product.Style" class="control-label"></label>
+        <input asp-for="@Model.Product.Style" class="form-control" />
+        <span asp-validation-for="@Model.Product.Style" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Product.PurchasePrice" class="control-label"></label>
+        <input asp-for="@Model.Product.PurchasePrice" class="form-control" />
+        <span asp-validation-for="@Model.Product.PurchasePrice" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Product.SalePrice" class="control-label"></label>
+        <input asp-for="@Model.Product.SalePrice" class="form-control" />
+        <span asp-validation-for="@Model.Product.SalePrice" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Product.QtyOnHand" class="control-label"></label>
+        <input asp-for="@Model.Product.QtyOnHand" class="form-control" />
+        <span asp-validation-for="@Model.Product.QtyOnHand" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Product.CommissionPercentage" class="control-label"></label>
+        <input asp-for="@Model.Product.CommissionPercentage" class="form-control" type="number" min="0" max="99" />
+        <span asp-validation-for="@Model.Product.CommissionPercentage" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" style="margin-top:10px" value="Update" class="btn btn-primary" />
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

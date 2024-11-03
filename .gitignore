@@ -1,0 +1,9 @@
+.vs
+.git
+.github
+BeSpokedSalesService/bin
+BeSpokedSalesService/obj
+BeSpokedSalesModel/bin
+BeSpokedSalesModel/obj
+BeSpokedSalesApp/bin
+BeSpokedSalesApp/obj

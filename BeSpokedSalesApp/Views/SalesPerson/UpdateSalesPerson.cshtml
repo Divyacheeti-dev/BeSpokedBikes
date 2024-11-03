@@ -1,0 +1,52 @@
+﻿@model SalespersonEditModel
+
+<h1>Edit Salesperson</h1>
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Salesperson.SalespersonId" />
+    <div class="form-group">
+        <label asp-for="Salesperson.FirstName" class="control-label"></label>
+        <input asp-for="Salesperson.FirstName" class="form-control" />
+        <span asp-validation-for="Salesperson.FirstName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Salesperson.LastName" class="control-label"></label>
+        <input asp-for="Salesperson.LastName" class="form-control" />
+        <span asp-validation-for="Salesperson.LastName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Salesperson.Address" class="control-label"></label>
+        <input asp-for="Salesperson.Address" class="form-control" />
+        <span asp-validation-for="Salesperson.Address" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Salesperson.Phone" class="control-label"></label>
+        <input asp-for="Salesperson.Phone" class="form-control" />
+        <span asp-validation-for="Salesperson.Phone" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Salesperson.StartDate" class="control-label"></label>
+        <input asp-for="Salesperson.StartDate" class="form-control" type="date" />
+        <span asp-validation-for="Salesperson.StartDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Salesperson.TerminationDate" class="control-label"></label>
+        <input asp-for="Salesperson.TerminationDate" class="form-control" type="date" />
+        <span asp-validation-for="Salesperson.TerminationDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Salesperson.ManagerId" class="control-label"></label>
+        <select asp-for="Salesperson.ManagerId" class="form-control">
+            <option value="">-- Select Manager --</option>
+            @foreach (var manager in Model.Managers)
+            {
+                <option value="@manager.SalespersonId">@manager.FirstName @manager.LastName</option>
+            }
+        </select>
+        <span asp-validation-for="Salesperson.ManagerId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Update" style="margin-top:10px" class="btn btn-primary" />
+    </div>
+</form>

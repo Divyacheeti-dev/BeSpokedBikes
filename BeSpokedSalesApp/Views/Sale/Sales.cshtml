@@ -1,0 +1,44 @@
+﻿@model SaleListModel
+
+<h1>Sales</h1>
+
+<div class="text-end">
+    <a class="btn btn-primary" asp-area="" asp-controller="Sale" asp-action="CreateSale">Create Sale</a>
+</div>
+
+
+<form method="get">
+    <div class="form-inline" style="width:200px">
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate" class="form-control" />
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" name="endDate" class="form-control" />
+        <button type="submit" style="margin-top:10px" class="btn btn-primary">Filter</button>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Salesperson</th>
+            <th>Customer</th>
+            <th>Sales Date</th>
+            <th>Price</th>
+            <th>Salesperson Commission</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sale in Model.Sales)
+        {
+            <tr>
+                <td>@sale.Product.Name</td>
+                <td>@sale.Salesperson.FirstName @sale.Salesperson.LastName</td>
+                <td>@sale.Customer.FirstName @sale.Customer.LastName</td>
+                <td>@sale.SalesDate.ToShortDateString()</td>
+                <td>@sale.Product.PurchasePrice</td>
+                <td>@sale.Product.CommissionPercentage</td>
+            </tr>
+        }
+    </tbody>
+</table>

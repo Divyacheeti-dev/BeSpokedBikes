@@ -1,0 +1,39 @@
+﻿@using System.Globalization;
+@model SaleCommisionReportListModel
+
+<h1>Sale Commision Report</h1>
+<form method="get">
+    <div class="form-group">
+        <label for="quarter">Quarter:</label>
+        <select class="form-control" id="quarter" name="quarter">
+            <option value="1">Q1</option>
+            <option value="2">Q2</option>
+            <option value="3">Q3</option>
+            <option value="4">Q4</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="year">Year:</label>
+        <input type="number" class="form-control" id="year" name="year" min="2023" max="2026" value="@DateTime.Now.Year">
+    </div>
+    <button type="submit" style="margin-top:10px" class="btn btn-primary">Filter</button>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Salesperson</th>
+            <th>Total Sales</th>
+            <th>Commission Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var report in Model.SalesCommissionReports)
+        {
+            <tr>
+                <td>@report.SalespersonName</td>
+                <td>@report.TotalSales.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</td>
+                <td>@report.CommissionAmount.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</td>
+            </tr>
+        }
+    </tbody>
+</table>

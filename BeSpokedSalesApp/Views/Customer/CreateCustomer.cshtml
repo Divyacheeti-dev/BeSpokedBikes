@@ -1,0 +1,36 @@
+﻿
+@model CustomerCreateModel
+
+<h1>Create Customer</h1>
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Customer.FirstName" class="control-label"></label>
+        <input asp-for="Customer.FirstName" class="form-control" />
+        <span asp-validation-for="Customer.FirstName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Customer.LastName" class="control-label"></label>
+        <input asp-for="Customer.LastName" class="form-control" />
+        <span asp-validation-for="Customer.LastName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Customer.Address" class="control-label"></label>
+        <input asp-for="Customer.Address" class="form-control" />
+        <span asp-validation-for="Customer.Address" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Customer.Phone" class="control-label"></label>
+        <input asp-for="Customer.Phone" class="form-control" />
+        <span asp-validation-for="Customer.Phone" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Customer.StartDate" class="control-label"></label>
+        <input asp-for="Customer.StartDate" class="form-control" type="date" />
+        <span asp-validation-for="Customer.StartDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" style="margin-top:10px" class="btn btn-primary" />
+    </div>
+</form>

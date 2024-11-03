@@ -1,0 +1,37 @@
+﻿@model ProductListModel
+@{
+    
+}
+<h1>Products</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Manufacturer</th>
+            <th>Style</th>
+            <th>Purchase Price</th>
+            <th>Sale Price</th>
+            <th>Quantity On Hand</th>
+            <th>Commission Percentage</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Products)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Manufacturer</td>
+                <td>@item.Style</td>
+                <td>@item.PurchasePrice</td>
+                <td>@item.SalePrice</td>
+                <td>@item.QtyOnHand</td>
+                <td>@item.CommissionPercentage</td>
+                <td>
+                    <a asp-area="" asp-controller="Product" asp-route-id="@item.ProductId" asp-action="UpdateProduct">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
